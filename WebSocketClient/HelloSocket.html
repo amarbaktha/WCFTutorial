@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Welcome to Web Socket</title>
+    <script src="Scripts/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <script>
+        $(function () {
+            function log(msg) {
+                $('#log').append('<li>' + msg + '<li>');
+            }
+
+            //var webSocket = window.WebSocket || window.MozWebSocket,
+            //var webSocket = window.WebSocket, ws = new WebSocket('ws://localhost:8181
+
+            var webSocket = window.WebSocket, ws = new WebSocket('ws:// ' + window.location.hostname + "/WCFWebSocketSample/Service1.svc");
+
+            log('Attempting to connect to server..');
+
+            ws.onopen = function () {
+                log('Connection Opened');
+            }
+
+            ws.onclose = function () {
+                log('Connection Closed');
+            }
+
+            ws.onmessage = function (e) {
+                log('Server says: ' + e.data);
+            }
+
+            ws.onerror = function (e) {
+                log('Error occurred' + e);
+            }
+
+            $('#messageBox').change(function () {
+                ws.send(this.value);
+            })
+        })
+    </script>
+    <h1>Web Socket Sample</h1>
+    <div id="container">
+        <h1>Sending messages via Web Sockets</h1>
+        <input type="text" id="messageBox" placeholder="type a message here" />
+        <ul id="log"></ul>
+    </div>
+</body>
+</html>

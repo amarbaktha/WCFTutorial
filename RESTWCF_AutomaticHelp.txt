@@ -1,0 +1,46 @@
+http://localhost:40044/Service1.svc/help
+
+XML Format:
+===========
+<int xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2147483647</int>
+
+
+Fiddler COmposer:
+=================
+Post 
+URl : 
+http://localhost:40044/Service1.svc/value/HC
+Request Body:
+<int xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2147483647</int>
+Content-Type: text/xml
+Content-Type: application/json
+
+Get
+remove request body
+200 Response Code
+
+now change content type to application/json
+
+Accept: application/json
+Accept: application/text+xml
+
+
+HTTP Caching:
+=============
+http://localhost:40044/Service1.svc/time
+
+Integration with ASP.Net route:
+===============================
+http://localhost:40044/Data/Time
+http://localhost:40044/Data/value/Amar
+
+
+Contract First Development:
+===========================
+http://localhost:40044/Service1.svc?wsdl
+svcutil "http://localhost:40044/Service1.svc?wsdl" /serviceContract - thsi provides only what is necessary
+
+ASP.Net compatibility Mode:
+=============================
+-changed to enable WCF service to participate in ASP.Net pipeline just like ASMX Services
+-WCF call cannot access ASp.Net pipeline..we need to create a separate request and response pipeline to access WCF Service..this is in WCF 4.0..we need to set the compatibility mode explicitly but now in 4.5 its in-built

@@ -1,0 +1,26 @@
+﻿<Window x:Class="UDPServiceWPFClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+            <Label>TCP</Label>
+            <RadioButton Name="tcpRadio" Checked="tcpRadio_Checked"></RadioButton>
+            <Label>UDP</Label>
+            <RadioButton Name="udpRadio" Checked="udpRadio_Checked"></RadioButton>
+            <Label>HTTP</Label>
+            <RadioButton Name="httpRadio" Checked="httpRadio_Checked"></RadioButton>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center">
+            <Button Content="Service Call" Click="Button_Click"></Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label>TCP</Label>
+            <TextBlock Name="txtTCP"></TextBlock>
+            <Label>UDP</Label>
+            <TextBlock Name="txtUDP"></TextBlock>
+            <Label>HTTP</Label>
+            <TextBlock Name="txtHTTP"></TextBlock>
+        </StackPanel>
+    </StackPanel>
+</Window>

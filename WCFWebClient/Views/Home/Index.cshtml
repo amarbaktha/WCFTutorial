@@ -1,0 +1,21 @@
+﻿@model WCFWebClient.ViewModel.NewsWeatherViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>New Weather Service Results</h1>
+<h2>@ViewBag.Message</h2>
+
+<div style="font-size:x-large">
+    <div>Current news headline: @Model.Headline</div>
+    <div>Current Temperature: @Model.Temperature</div>
+    <div>Elasped Time: @Model.ElapsedTime</div>
+</div>
+
+<ol style="font-size:large; color:red; border:5px solid groove;">
+    @foreach (var message in @Model.Messages)
+    {
+        <li>@message</li>
+    }
+</ol>
